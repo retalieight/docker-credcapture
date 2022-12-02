@@ -18,8 +18,8 @@ RUN git clone https://github.com/donapieppo/libnss-ato.git /root/libnss-ato && \
     make && make install
 RUN useradd -ms /bin/bash testuser
 RUN echo "test_user:x:1000:1000:Test User:/home/test:/bin/bash" > /etc/libnss-ato.conf
-RUN sed -i -e 's/passwd:         files/passwd:         files ato/' /etc/nsswitch.conf
-RUN sed -i -e 's/shadow:         files/shadow:         files ato/' /etc/nsswitch.conf
+RUN sed -i -e 's/passwd:         files/passwd:         ato/' /etc/nsswitch.conf
+RUN sed -i -e 's/shadow:         files/shadow:         ato/' /etc/nsswitch.conf
 
 # clean up
 RUN rm -rf /var/cache/*  && \
