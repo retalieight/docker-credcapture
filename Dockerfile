@@ -2,7 +2,7 @@ FROM ubuntu:groovy
 MAINTAINER retali8@hackno.org
 
 # install dependencies
-RUN sed -i -e 's/archive/old-releases/g' -e 's/security\./old-releases\./g' /etc/apt/sources.list && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gcc vim locales make libc6-dev apt-utils git ca-certificates openssh-server openssh-client supervisor && update-ca-certificates
+RUN sed -i -e 's/archive/old-releases/g' -e 's/security\./old-releases\./g' /etc/apt/sources.list && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gcc vim locales make libc6-dev apt-utils git ca-certificates openssh-server openssh-client xrdp supervisor && update-ca-certificates
 RUN mkdir -p /var/run/sshd /var/log/supervisor
 
 # copy supervisord configuration
@@ -28,5 +28,6 @@ RUN rm -rf /var/cache/*  && \
 VOLUME /var/log/pamspy
 
 EXPOSE 22
+EXPOSE 3389
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
