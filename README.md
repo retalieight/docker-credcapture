@@ -1,4 +1,4 @@
-# pamspy docker
+# SSH credential capturing in plaintext (pamspy docker container)
 
 1. git clone https://github.com/retalieight/docker-credcapture.git
 2. cd docker-credcapture
