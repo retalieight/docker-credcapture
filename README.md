@@ -4,3 +4,4 @@
 2. cd docker-credcapture
 3. docker build -t retali8/credcapture:latest .
 4. docker run --privileged -d --name credcapture --restart=unless-stopped -p 22:22 retali8/credcapture
+5. docker logs credcapture -f
