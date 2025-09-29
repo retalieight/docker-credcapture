@@ -1,0 +1,12 @@
+services:
+  credentialdumper:
+    image: retali8/credentialdumper
+    container_name: credentialdumper
+    privileged: true
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    ports:
+      - 22:22
+      - 3389:3389
