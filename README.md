@@ -33,3 +33,9 @@ docker run --privileged -d --name credentialdumper --restart=unless-stopped -p 2
 ```
 docker logs credentialdumper -f
 ```
+
+## Dump the credentials in a colon separated format
+
+```
+docker logs credentialdumper | grep -E '^[0-9]+\s+' | sed -e 's/\s//g' -e 's/\xC2\xA0//g' | awk -F\| '{print $3 ":" $4}'
+```
